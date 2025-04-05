@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Звіт з дисципліни</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      header {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .main-container {
+        display: flex;
+        width: 90%;
+        margin-top: 20px;
+      }
+
+      .sidebar {
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .sidebar button {
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .sidebar button:hover {
+        background-color: #ddd;
+      }
+
+      .content {
+        flex: 1;
+        border: 2px solid #ccc;
+        margin-left: 20px;
+        padding: 20px;
+        min-height: 300px;
+        border-radius: 8px;
+        background-color: #fefefe;
+      }
+
+      .student-info {
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        margin-top: 20px;
+        align-items: center;
+      }
+
+      .photo-box {
+        width: 120px;
+        height: 150px;
+        border: 2px dashed #999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: #666;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h2>ЗВІТ</h2>
+      <p>
+        <strong
+          >З ДИСЦИПЛІНИ «WEB-ОРІЄНТОВАНІ ТЕХНОЛОГІЇ. ОСНОВИ FRONTEND та BACKEND
+          РОЗРОБОК»</strong
+        >
+      </p>
+    </header>
+
+    <div class="student-info">
+      <div>
+        <strong>Студент гр. ІМ-24</strong>
+        <strong>Якимчук Кіріл Сергійович</strong>
+      </div>
+      <img
+        src="IMG_0810.png"
+        alt="Фото студента"
+        style="
+          width: 120px;
+          height: 150px;
+          object-fit: cover;
+          border: 2px solid #999;
+          border-radius: 8px;
+        "
+      />
+    </div>
+
+    <div class="main-container">
+      <div class="sidebar">
+        <button onclick="showContent('theme')">ТЕМА проєкту</button>
+        <button onclick="showContent('stack')">СТЕК ТЕХНОЛОГІЙ</button>
+        <button onclick="showContent('requirements')">
+          Функціональні та нефункціональні вимоги
+        </button>
+        <button onclick="showContent('screenshot')">
+          СКРІН головної сторінки
+        </button>
+        <button onclick="showContent('frontend')">Frontend частина</button>
+        <button onclick="showContent('backend')">Backend частина</button>
+        <button onclick="showContent('database')">База даних</button>
+        <button onclick="showContent('conclusion')">ВИСНОВКИ</button>
+      </div>
+
+      <div class="content" id="output">
+        <em>Місце виведення інформації</em>
+      </div>
+    </div>
+
+    <script>
+      function showContent(section) {
+        const output = document.getElementById("output");
+        const contentMap = {
+          theme:
+            "<h3>Тема проєкту</h3><p>Онлайн додаток для текінгу книг та читання.</p><p><a href='https://github.com/stbestichhh/book-station-web'>Посилання на репозиторій frontend частини</a></p><p><a href='https://github.com/stbestichhh/book-station-server'>Посилання на репозиторій backend частини</a></p>",
+          stack:
+            "<h3>Стек технологій</h3><ul><li>Frontend: React, Vite, TypeScript</li><li>Backend: Node.js, Nest.js, TypeScript</li><li>База даних: PostgreSQL, SQLite</li></ul>",
+          requirements: `
+    <h2>Функціональні вимоги</h2>
+    <ul>
+      <li>Додавання, редагування, видалення книжок у треклісти (хочу прочитати, в процесі, прочитано тощо).</li>
+      <li>Запуск сесій читання, ведення статистики по часу та сторінках.</li>      
+      <li>Можливість ставити цілі (кількість книжок, хвилини в день) та відстежувати їх виконання.</li>
+      <li>Реєстрація та вхід користувача, збереження його даних.</li>
+    </ul>
+    
+    <h2>Нефункціональні вимоги</h2>
+    <ul>
+      <li><strong>Продуктивність:</strong> Завантаження сторінки ≤ 2 с, швидкий відгук API (&lt; 300 мс).</li>
+      <li><strong>Масштабованість:</strong> Підтримка збільшення користувачів і даних без втрати якості.</li>      
+      <li><strong>Надійність:</strong> Автосейв сесій, резервне копіювання БД, відновлення після збоїв.</li>            
+      <li><strong>Тестованість:</strong> Unit-тести (80%+), логування помилок, валідація форм.</li>
+    </ul>
+  `,
+          screenshot: `<h3>Скріншот головної сторінки</h3><img src="2025_04_05_13_50_57_406_A450.png" alt="Скріншот головної сторінки" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);" />`,
+          frontend: `
+        <h3>Frontend частина</h3>
+        <p>Фронтенд реалізовано за допомогою <strong>React</strong> з використанням <strong>Vite</strong> для швидкої збірки та <strong>TypeScript</strong> для статичної типізації.</p>
+        <p>Додаток є SPA (Single Page Application), має форми автентифікації, перегляду та додавання записів. Використано React Hooks, Context API та кастомні компоненти.</p>
+      `,
+          backend: `
+        <h3>Backend частина</h3>
+        <p>Серверна частина побудована на <strong>NestJS</strong> — фреймворку для Node.js, що підтримує модульну архітектуру та TypeScript.</p>
+        <p>Реалізовано REST API з модулями авторизації, CRUD для основних сутностей, DTO валідацією, middleware та guard-ами для безпеки.</p>
+      `,
+          database: `
+  <h3>База даних</h3>
+  <p>Для зберігання даних використовуються дві СУБД в залежності від середовища:</p>
+  <ul>
+    <li><strong>SQLite</strong> — для локальної розробки та тестування;</li>
+    <li><strong>PostgreSQL</strong> — для production-оточення.</li>
+  </ul>
+  <p>Перемикання між ними здійснюється через змінну середовища <code>DB_TYPE</code>. ORM автоматично адаптується до обраної БД.</p>
+  <p>Основні таблиці:</p>
+  <ul>
+    <li><strong>users</strong> — зберігає інформацію про користувачів (логін, пароль, цілі);</li>
+    <li><strong>books</strong> — містить дані про книги (назва, автор, опис, трекінг прогерсу читання та інше).</li>
+  </ul>
+  <p>Для взаємодії з БД використовується ORM з підтримкою валідацій, зв’язків та міграцій.</p>
+`,
+          conclusion: `
+  <h3>Висновки</h3>
+  <p>У процесі розробки було створено повноцінний веб-додаток із розділенням на frontend і backend частини, з використанням сучасного стеку технологій.</p>
+  <p>Робота над проєктом дала змогу:</p>
+  <ul>
+    <li>закріпити навички роботи з <strong>React, TypeScript, Vite</strong> при побудові SPA;</li>
+    <li>освоїти принципи модульної архітектури та REST API через <strong>NestJS</strong>;</li>
+    <li>навчитись перемикати середовища бази даних між <strong>SQLite</strong> і <strong>PostgreSQL</strong> через змінні середовища;</li>
+    <li>застосувати практики авторизації, валідації, маршрутизації, роботи з формами;</li>
+    <li>покращити структуру коду та дотримання принципів чистої архітектури.</li>
+  </ul> 
+`,
+        };
+
+        output.innerHTML =
+          contentMap[section] || "<p>Інформація не знайдена.</p>";
+      }
+    </script>
+  </body>
+</html>
