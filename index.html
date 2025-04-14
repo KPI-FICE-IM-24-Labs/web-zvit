@@ -118,6 +118,7 @@
         <button onclick="showContent('frontend')">Frontend частина</button>
         <button onclick="showContent('backend')">Backend частина</button>
         <button onclick="showContent('database')">База даних</button>
+        <button onclick="showContent('tests')">Тестування</button>
         <button onclick="showContent('conclusion')">ВИСНОВКИ</button>
       </div>
 
@@ -131,7 +132,7 @@
         const output = document.getElementById("output");
         const contentMap = {
           theme:
-            "<h3>Тема проєкту</h3><p>Онлайн додаток для текінгу книг та читання.</p><p><a href='https://github.com/stbestichhh/book-station-web'>Посилання на репозиторій frontend частини</a></p><p><a href='https://github.com/stbestichhh/book-station-server'>Посилання на репозиторій backend частини</a></p>",
+            "<h3>Тема проєкту</h3><p>Онлайн додаток для текінгу книг та читання.</p><p><a href='https://github.com/stbestichhh/book-station-web'>Посилання на репозиторій frontend частини</a></p><p><a href='https://github.com/stbestichhh/book-station-server'>Посилання на репозиторій backend частини</a></p><p><a href='https://book-station-seven.vercel.app/'>Посилання на живу сторінку frontend частини</a></p><p><a href='https://github.com/KPI-FICE-IM-24-Labs/web-zvit'>Посилання на репозиторій звіту</a></p><p><a href='https://kpi-fice-im-24-labs.github.io/web-zvit/'>Посилання на живу сторінку звіту</a></p>",
           stack:
             "<h3>Стек технологій</h3><ul><li>Frontend: React, Vite, TypeScript</li><li>Backend: Node.js, Nest.js, TypeScript</li><li>База даних: PostgreSQL, SQLite</li></ul>",
           requirements: `
@@ -150,17 +151,178 @@
       <li><strong>Надійність:</strong> Автосейв сесій, резервне копіювання БД, відновлення після збоїв.</li>            
       <li><strong>Тестованість:</strong> Unit-тести (80%+), логування помилок, валідація форм.</li>
     </ul>
+
+    <h3>Use case діаграма</h3>
+    <p>
+      <img src="2025_04_14_12_43_45_837_Z8mK.png" alt="UML діаграма функціоналу додатку" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px;" />
+    </p>
+    <h3>ER діаграма</h3>
+    <p>
+      <img src="2025_04_14_12_52_11_892_ObAc.png" alt="ER UML діаграма" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px;" />
+    </p>
+    <h3>Структура проекту</h3>
+    <p>
+      <img src="2025_04_14_12_59_14_498_FWQG.png" alt="UML діаграма структури проекту" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px;" />
+    </p>
   `,
           screenshot: `<h3>Скріншот головної сторінки</h3><img src="2025_04_05_13_50_57_406_A450.png" alt="Скріншот головної сторінки" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px; box-shadow: 2px 2px 10px rgba(0,0,0,0.1);" />`,
           frontend: `
         <h3>Frontend частина</h3>
         <p>Фронтенд реалізовано за допомогою <strong>React</strong> з використанням <strong>Vite</strong> для швидкої збірки та <strong>TypeScript</strong> для статичної типізації.</p>
         <p>Додаток є SPA (Single Page Application), має форми автентифікації, перегляду та додавання записів. Використано React Hooks, Context API та кастомні компоненти.</p>
+
+        <h2>💾 Використання LocalStorage</h2>
+  <p>
+    У цьому проекті використовується <strong>LocalStorage</strong> для зберігання ключових даних на стороні клієнта:
+  </p>
+  <ul>
+    <li><strong>JWT токен</strong> — для автентифікації користувача при взаємодії з бекендом.</li>
+    <li><strong>Кількість прочитаних сторінок за сьогодні</strong> — для відображення прогресу читання в інтерфейсі.</li>
+    <li><strong>Кількість витрачених хвилин за сьогодні</strong> — для контролю часу, присвяченого читанню.</li>
+  </ul>
+  <p>Ці дані зберігаються у LocalStorage для зручності доступу та автоматичного підрахунку без додаткових запитів до сервера.</p>
+</section>
+
+        <h3>Дерево проекту</h3>
+        <p>
+          <img src="2025_04_14_13_01_14_020_w3oe.png" alt="Скріншот дерева проекту" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px;" />
+        </p>
+        <h2>📁 components</h2>
+<ul>
+    <li><code>AddBookCard.tsx</code> — картка для додавання книги.</li>
+    <li><code>AddBookForm.tsx</code> — форма додавання інформації.</li>
+    <li><code>ArrowButton.tsx</code> — кнопка-стрілка.</li>
+    <li><code>BookCard.tsx</code> — картка книги.</li>
+    <li><code>BookDetails.tsx</code> — деталі книги.</li>
+    <li><code>BookGallery.tsx</code> — галерея книг.</li>
+    <li><code>EditBookForm.tsx</code> — форма редагування книги.</li>
+    <li><code>GalleryCard.tsx</code> — картка галереї.</li>
+    <li><code>InfoCard.tsx</code> — інфо-блок.</li>
+    <li><code>MotionDivZOpacity.tsx</code> — анімаційний дів.</li>
+    <li><code>ReadingStats.tsx</code> — статистика читання.</li>
+    <li><code>ReadingStatsCard.tsx</code> — картка з статистикою.</li>
+    <li><code>SettingsButton.tsx</code> — кнопка налаштувань.</li>
+</ul>
+
+<h2>📁 context</h2>
+<p><code>auth.context.tsx</code> — контекст авторизації.</p>
+
+<h2>📁 hooks</h2>
+<p><code>useTimer.tsx</code> — хук для таймера.</p>
+
+<h2>📁 http</h2>
+<ul>
+    <li><code>abstractApiClient.ts</code> — абстракція HTTP-клієнта.</li>
+    <li><code>book.client.ts</code> — API-клієнт для книг.</li>
+    <li><code>index.ts</code> — імпорт/експорт клієнтів.</li>
+</ul>
+
+<h2>📁 pages</h2>
+<ul>
+    <li><code>Auth.tsx</code> — сторінка логіну.</li>
+    <li><code>Home.tsx</code> — домашня сторінка.</li>
+    <li><code>auth.css</code> — стилі для логін-вю.</li>
+</ul>
+
+<h2>📁 styles</h2>
+<p>Файли CSS для окремих компонентів.</p>
+
+<h2>📁 utils</h2>
+<ul>
+    <li><code>dailyReadingTracket.tsx</code> — трекер читання.</li>
+    <li><code>getFullBookId.ts</code> — отримання повного ID книги.</li>
+    <li><code>index.ts</code> — імпорт утиліт.</li>
+</ul>
+
+<h2>📄 Кореневі файли</h2>
+<ul>
+    <li><code>App.tsx</code> — головний компонент React.</li>
+    <li><code>book.type.ts</code>, <code>user.type.ts</code> — типи для книг і користувачів.</li>
+    <li><code>main.tsx</code> — точка запуску додатку.</li>
+</ul>
       `,
           backend: `
         <h3>Backend частина</h3>
         <p>Серверна частина побудована на <strong>NestJS</strong> — фреймворку для Node.js, що підтримує модульну архітектуру та TypeScript.</p>
         <p>Реалізовано REST API з модулями авторизації, CRUD для основних сутностей, DTO валідацією, middleware та guard-ами для безпеки.</p>
+        <h3>Дерево проекту</h3>
+        <p>
+          <img src="2025_04_14_13_06_44_089_8DF8.png" alt="Скріншот дерева проекту" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px;" />
+        </p>
+        <h3>📁 src/auth</h3>
+  <ul>
+    <li><strong>decorators/</strong>
+      <ul>
+        <li>currentUser.decorator.ts — Декоратор для витягування користувача з запиту.</li>
+        <li>private.decorator.ts — Декоратор для захисту приватних роутів.</li>
+        <li>index.ts — Експортує всі декоратори з папки.</li>
+      </ul>
+    </li>
+    <li><strong>guards/</strong>
+      <ul>
+        <li>jwt.guard.ts — Guard для перевірки JWT токена.</li>
+        <li>local.guard.ts — Guard для локальної аутентифікації.</li>
+        <li>index.ts — Експортує всі guard'и з папки.</li>
+      </ul>
+    </li>
+    <li><strong>strategies/</strong>
+      <ul>
+        <li>jwt.strategy.ts — Стратегія аутентифікації через JWT.</li>
+        <li>local.strategy.ts — Стратегія локальної аутентифікації.</li>
+        <li>index.ts — Експортує всі стратегії з папки.</li>
+      </ul>
+    </li>
+    <li><strong>users/</strong>
+      <ul>
+        <li><strong>dto/</strong>
+          <ul>
+            <li>createUser.dto.ts — DTO для створення користувача.</li>
+            <li>updateUser.dto.ts — DTO для оновлення даних користувача.</li>
+            <li>index.ts — Імпортує/експортує DTO.</li>
+          </ul>
+        </li>
+        <li>current-user.controller.ts — Контролер для отримання поточного користувача.</li>
+        <li>users.controller.ts — Основний контролер для користувачів.</li>
+        <li>users.module.ts — Nest модуль користувачів.</li>
+        <li>users.repository.ts — Репозиторій для доступу до БД користувачів.</li>
+        <li>users.service.ts — Сервіс бізнес-логіки користувачів.</li>
+        <li>users.service.spec.ts — Тести для сервісу користувачів.</li>
+      </ul>
+    </li>
+    <li>auth.controller.ts — Контролер для авторизації.</li>
+    <li>auth.module.ts — Nest модуль авторизації.</li>
+    <li>auth.service.ts — Сервіс для авторизації.</li>
+    <li>payload.ts — Опис типів для payload'ів токенів.</li>
+  </ul>
+
+  <h3>📁 src/book</h3>
+  <ul>
+    <li><strong>dto/</strong>
+      <ul>
+        <li>createBook.dto.ts — DTO для створення книги.</li>
+        <li>updateBook.dto.ts — DTO для оновлення книги.</li>
+        <li>index.ts — Експортує DTO.</li>
+      </ul>
+    </li>
+    <li>book.controller.ts — Контролер для роботи з книгами.</li>
+    <li>book.controller.spec.ts — Тести для контролера книг.</li>
+    <li>book.module.ts — Nest модуль для книг.</li>
+    <li>book.repository.ts — Репозиторій для роботи з книгами.</li>
+    <li>book.service.ts — Сервіс для бізнес-логіки книг.</li>
+    <li>book.service.spec.ts — Тести для сервісу книг.</li>
+  </ul>
+
+  <h3>📁 src/database</h3>
+  <ul>
+    <li><strong>models/</strong>
+      <ul>
+        <li>book.entity.ts — Опис ентіті книги.</li>
+        <li>user.entity.ts — Опис ентіті користувача.</li>
+        <li>index.ts — Експортує моделі.</li>
+      </ul>
+    </li>
+    <li>abstract.repository.ts — Абстрактний репозиторій для спадкування.</li>
+  </ul>
       `,
           database: `
   <h3>База даних</h3>
@@ -176,6 +338,10 @@
     <li><strong>books</strong> — містить дані про книги (назва, автор, опис, трекінг прогерсу читання та інше).</li>
   </ul>
   <p>Для взаємодії з БД використовується ORM з підтримкою валідацій, зв’язків та міграцій.</p>
+  <h3>ER діаграма</h3>
+    <p>
+      <img src="2025_04_14_12_52_11_892_ObAc.png" alt="ER UML діаграма" style="max-width:100%; border: 1px solid #ccc; border-radius: 8px;" />
+    </p>
 `,
           conclusion: `
   <h3>Висновки</h3>
@@ -189,6 +355,70 @@
     <li>покращити структуру коду та дотримання принципів чистої архітектури.</li>
   </ul> 
 `,
+          tests: `
+  <h3>BookService</h3>
+  <ul>
+    <li><strong>Налаштування тестів</strong> — створюється тестовий модуль з використанням in-memory SQLite бази та BookEntity. Перед запуском тестів таблиці скидаються, після — видаляються.</li>
+    <li><strong>Створення книги</strong>
+      <ul>
+        <li>Перевіряється створення книги з мінімально необхідними полями.</li>
+        <li>Перевіряється створення книги з усіма можливими полями.</li>
+      </ul>
+    </li>
+    <li><strong>Отримання книги</strong>
+      <ul>
+        <li>Перевіряється отримання книги за ідентифікатором.</li>
+        <li>Перевіряється виняток при запиті неіснуючої книги.</li>
+        <li>Перевіряється отримання всіх книг.</li>
+        <li>Перевіряється фільтрація книг за назвою.</li>
+      </ul>
+    </li>
+    <li><strong>Оновлення книги</strong>
+      <ul>
+        <li>Перевіряється виняток при оновленні неіснуючої книги.</li>
+        <li>Перевіряється оновлення книги без зміни атрибутів.</li>
+        <li>Перевіряється оновлення значення поля (кількість прочитаних сторінок).</li>
+      </ul>
+    </li>
+    <li><strong>Видалення книги</strong>
+      <ul>
+        <li>Перевіряється виняток при видаленні книги з неправильним id.</li>
+        <li>Перевіряється успішне видалення книги та підтвердження її відсутності.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>UsersService</h3>
+  <ul>
+    <li><strong>Налаштування тестів</strong> — створюється тестовий модуль з in-memory SQLite базою та UserEntity. Перед запуском тестів таблиці скидаються, після — видаляються.</li>
+    <li><strong>Створення користувача</strong>
+      <ul>
+        <li>Перевіряється створення користувача з обов'язковими полями та автоматично підставленими цілями читання.</li>
+        <li>Перевіряється створення користувача з усіма полями.</li>
+        <li>Перевіряється, що неможливо створити користувача з email, який вже існує.</li>
+      </ul>
+    </li>
+    <li><strong>Отримання користувачів</strong>
+      <ul>
+        <li>Перевіряється отримання всіх користувачів.</li>
+        <li>Перевіряється отримання користувача за id.</li>
+        <li>Перевіряється виняток при пошуку користувача з неправильним id.</li>
+        <li>Перевіряється фільтрація користувачів за критеріями (наприклад, username).</li>
+      </ul>
+    </li>
+    <li><strong>Оновлення користувача</strong>
+      <ul>
+        <li>Перевіряється, що дані користувача можна оновити (наприклад, ціль річного читання).</li>
+      </ul>
+    </li>
+    <li><strong>Видалення користувача</strong>
+      <ul>
+        <li>Перевіряється успішне видалення користувача.</li>
+        <li>Перевіряється виняток при запиті на видалення вже видаленого користувача.</li>
+      </ul>
+    </li>
+  </ul>
+  `,
         };
 
         output.innerHTML =
